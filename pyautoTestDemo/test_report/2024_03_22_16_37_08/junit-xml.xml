@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="8" time="14.967" timestamp="2024-03-22T16:37:08.953777" hostname="DESKTOP-NNCD80F"><testcase classname="test_dir.test_baidu.TestBaidu" name="test_baidu_search[case1]" time="4.863" /><testcase classname="test_dir.test_baidu.TestBaidu" name="test_baidu_search[case2]" time="2.499" /><testcase classname="test_dir.test_baidu.TestBaidu" name="test_baidu_search[case3]" time="2.463" /><testcase classname="test_dir.test_baidu.TestBaidu" name="test_baidu_search_case" time="2.429"><failure message="AttributeError: 'TestBaidu' object has no attribute 'assertEqual'">self = &lt;test_baidu.TestBaidu object at 0x042BE3A0&gt;
+browser = &lt;selenium.webdriver.chrome.webdriver.WebDriver (session="0df9886a3475f36897b45f66851c9bde")&gt;
+
+    def test_baidu_search_case(self,browser):
+        page = BaiduPage(browser)
+        page.open()
+        page.search_input("哈哈哈")
+        page.search_button()
+        sleep(2)
+&gt;       self.assertEqual(page.get_title(),"selenium_百度搜索")
+E       AttributeError: 'TestBaidu' object has no attribute 'assertEqual'
+
+test_dir\test_baidu.py:39: AttributeError</failure></testcase><testcase classname="test_dir.test_parameterize" name="test_pow[case1]" time="0.001" /><testcase classname="test_dir.test_parameterize" name="test_pow[case2]" time="0.001" /><testcase classname="test_dir.test_parameterize" name="test_pow[case3]" time="0.001" /><testcase classname="test_dir.test_parameterize" name="test_pow[case4]" time="2.148"><failure message="assert 0.0 == 9&#10;  +0.0&#10;  -9">base = 0, exponent = 9, expected = 9
+
+    @pytest.mark.parametrize(
+        "base,exponent,expected",
+        [
+            (2,2,4),
+            (2,3,8),
+            (1,9,1),
+            (0,9,9)
+        ],
+        ids=["case1","case2","case3","case4"]
+    )
+    def test_pow(base,exponent,expected):
+        """计算x的y次方"""
+&gt;       assert math.pow(base,exponent) == expected #计算x的y次方
+E       assert 0.0 == 9
+E         +0.0
+E         -9
+
+test_dir\test_parameterize.py:17: AssertionError</failure></testcase></testsuite></testsuites>
